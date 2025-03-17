@@ -27,15 +27,6 @@ func (r *MessageRepository) FindByID(id uint) (*model.Message, error) {
 	return &message, nil
 }
 
-func (r *MessageRepository) FindAll() ([]model.Message, error) {
-	var messages []model.Message
-	err := r.db.Find(&messages).Error
-	if err != nil {
-		return nil, err
-	}
-	return messages, nil
-}
-
 func (r *MessageRepository) Update(message *model.Message) error {
 	return r.db.Save(message).Error
 }
